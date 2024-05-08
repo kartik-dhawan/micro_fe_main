@@ -44,10 +44,16 @@ module.exports = (_, argv) => ({
       name: "micro_fe_main",
       filename: "remoteEntry.js",
       remotes: {
+        // key should be exactly the same as the name of the micro-fe we're accessing
+        // value should be name followed by @ & url for its remoteEntry.js file
         micro_fe_commons:
           "micro_fe_commons@http://localhost:8080/remoteEntry.js",
       },
-      exposes: {},
+      exposes: {
+        // here, key -> represents, at what path it would be available in consuming repo
+        // value -> represents the relative path of the exported component/element
+        "./methods": "./src/methods/index.ts",
+      },
       shared: {
         ...deps,
         react: {
