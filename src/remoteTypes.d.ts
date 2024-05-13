@@ -8,7 +8,7 @@ declare module "micro_fe_commons/Components" {
     name?: string;
   }>;
 
-  const Section: React.FC;
+  export const Section: React.FC;
 }
 
 declare module "micro_fe_commons/methods" {
